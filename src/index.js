@@ -12,7 +12,7 @@ const even = () => {
   let i = 0;
   while (i <= 2 && i > -10) {
     const random = Math.floor(Math.random() * 1000);
-    console.log(`Question ${random}`);
+    console.log(`Question: ${random}`);
     const userAnswer = readlineSync.question('Your answer: ');
     if (random % 2 === 0) {
       if (userAnswer !== 'yes') {
@@ -36,5 +36,25 @@ const even = () => {
   }
 };
 
-export default greeting;
-export { even };
+const calc = () => {
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
+  console.log('What is the result of the expression?');
+  let i = 0;
+  while (i <= 2 && i > -10) {
+    const random1 = Math.floor(Math.random() * 100);
+    const random2 = Math.floor(Math.random() * 100);
+    console.log(`Question: ${random1}+ ${random2}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (userAnswer === random1 + random2) {
+      i += 1;
+      console.log('Correct!');
+    }
+    i -= 5;
+    return `${userAnswer} is wrong answer ;(. Corretn answer was ${random1 + random2}.\nLet's try again, ${userName}!`;
+  }
+  if (i === 3) {
+    console.log(`Congratulations, ${userName}!`);
+  }
+};
+export { greeting, even, calc };
