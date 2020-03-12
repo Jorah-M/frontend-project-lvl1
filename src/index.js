@@ -44,7 +44,7 @@ const calc = () => {
   while (i <= 2 && i > -10) {
     const random1 = Math.floor(Math.random() * 100);
     const random2 = Math.floor(Math.random() * 100);
-    console.log(`Question: ${random1}+ ${random2}`);
+    console.log(`Question: ${random1} + ${random2}`);
     const userAnswer = readlineSync.question('Your answer: ');
     if (userAnswer === random1 + random2) {
       i += 1;
