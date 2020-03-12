@@ -5,4 +5,9 @@ const greeting = () => {
   console.log(`Hello, ${userName}!`);
 };
 
+const even = () => {
+
+};
+
 export default greeting;
+export default even;
