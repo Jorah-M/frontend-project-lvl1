@@ -2,4 +2,4 @@
 import { even } from '../src/index.js';
 
 console.log('Welcome to the Brain Games!');
-even();
+console.log(even());

@@ -1,9 +1,6 @@
 import readlineSync from 'readline-sync';
 
-const greeting = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-};
+const greeting = () => readlineSync.question('May I have your name? ');
 
 const even = () => {
   const userName = readlineSync.question('May I have your name? ');
@@ -17,7 +14,7 @@ const even = () => {
     if (random % 2 === 0) {
       if (userAnswer !== 'yes') {
         i -= 5;
-        return console.log(`"${userAnswer}" if wrong answer ;(. Correct answer was "yes".\nLet's try again, ${userName}!`);
+        return `"${userAnswer}" if wrong answer ;(. Correct answer was "yes".\nLet's try again, ${userName}!`;
       }
       i += 1;
       console.log('Correct!');
@@ -25,7 +22,7 @@ const even = () => {
     if (random % 2 !== 0) {
       if (userAnswer !== 'no') {
         i -= 5;
-        return console.log(`"${userAnswer}" if wrong answer ;(. Correct answer was "no".\nLet's try again, ${userName}!`);
+        return `"${userAnswer}" if wrong answer ;(. Correct answer was "no".\nLet's try again, ${userName}!`;
       }
       i += 1;
       console.log('Correct!');
@@ -48,8 +45,8 @@ const calcResult = (num1, sig, num2) => {
 };
 
 const calc = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
+  const name = greeting();
+  console.log(`Hello, ${name}!`);
   console.log('What is the result of the expression?');
   let i = 0;
   const arr = ['+', '-', '*'];
@@ -64,11 +61,11 @@ const calc = () => {
       console.log('Correct!');
     } else {
       i -= 12;
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was ${calcResult(random1, arr[sign], random2)}.\nLet's try again, ${userName}!`);
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was ${calcResult(random1, arr[sign], random2)}.\nLet's try again, ${name}!`);
     }
   }
   if (i === 3) {
-    console.log(`Congratulations, ${userName}!`);
+    console.log(`Congratulations, ${name}!`);
   }
 };
 
