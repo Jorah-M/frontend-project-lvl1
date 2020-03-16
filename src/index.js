@@ -69,4 +69,36 @@ const calc = () => {
   }
 };
 
-export { greeting, even, calc };
+function nodFunc(x, y) {
+  if (y > x) return nodFunc(y, x);
+  if (!y) return x;
+  return nodFunc(y, x % y);
+}
+
+const gcd = () => {
+  const name = greeting();
+  console.log(`Hello, ${name}!`);
+  console.log('Find the greatest common divisor of given numbers.');
+  let i = 0;
+  while (i < 3 && i > -10) {
+    const random1 = Math.floor(Math.random() * 10 + 1);
+    const random2 = Math.floor(Math.random() * 10 + 1);
+    const correctAnswer = nodFunc(random1, random2);
+    console.log(`Question: ${random1} ${random2}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (Number(userAnswer) === Number(correctAnswer)) {
+      i += 1;
+      console.log('Correct!');
+    } else {
+      i -= 12;
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${name}!`);
+    }
+  }
+  if (i === 3) {
+    console.log(`Congratulations, ${name}!`);
+  }
+};
+
+export {
+  greeting, even, calc, gcd,
+};
