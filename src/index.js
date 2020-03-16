@@ -3,8 +3,8 @@ import readlineSync from 'readline-sync';
 const greeting = () => readlineSync.question('May I have your name? ');
 
 const even = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
+  const name = greeting();
+  console.log(`Hello, ${name}!`);
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   let i = 0;
   while (i <= 2 && i > -10) {
@@ -14,7 +14,7 @@ const even = () => {
     if (random % 2 === 0) {
       if (userAnswer !== 'yes') {
         i -= 5;
-        return `"${userAnswer}" if wrong answer ;(. Correct answer was "yes".\nLet's try again, ${userName}!`;
+        return `"${userAnswer}" if wrong answer ;(. Correct answer was "yes".\nLet's try again, ${name}!`;
       }
       i += 1;
       console.log('Correct!');
@@ -22,15 +22,13 @@ const even = () => {
     if (random % 2 !== 0) {
       if (userAnswer !== 'no') {
         i -= 5;
-        return `"${userAnswer}" if wrong answer ;(. Correct answer was "no".\nLet's try again, ${userName}!`;
+        return `"${userAnswer}" if wrong answer ;(. Correct answer was "no".\nLet's try again, ${name}!`;
       }
       i += 1;
       console.log('Correct!');
     }
   }
-  if (i === 3) {
-    return `Congratulations, ${userName}!`;
-  }
+  return `Congratulations, ${name}!`;
 };
 
 const calcResult = (num1, sig, num2) => {
@@ -102,11 +100,12 @@ const gcd = () => {
 const randomProg = () => {
   const d = Math.floor(Math.random() * 10 + 1);
   const start = Math.floor(Math.random() * 100 + 1);
-  let progStr = start + '';
+  const arr = [];
+  arr.push(start);
   for (let i = 1; i < 10 && i > -10; i += 1) {
-    progStr += ` ${start + d * i}`;
+    arr.push(start + d * i);
   }
-  return progStr;
+  return arr;
 };
 
 const progression = () => {
@@ -115,13 +114,13 @@ const progression = () => {
   console.log('What number is missing in the progression?');
   let i2 = 0;
   while (i2 < 3 && i2 > -10) {
-    const arr = randomProg().split(' ');
+    const arr = randomProg();
     const i = Math.floor(Math.random() * 10);
     const correctAnswer = arr[i];
     arr[i] = '..';
     console.log(arr.join(' '));
     const userAnswer = readlineSync.question('Your answer: ');
-    if (userAnswer === correctAnswer) {
+    if (Number(userAnswer) === correctAnswer) {
       i2 += 1;
       console.log('Correct!');
     } else {

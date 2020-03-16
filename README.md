@@ -10,3 +10,6 @@
 
 Аскинема brain-gcd:
 [![asciicast](https://asciinema.org/a/0MqGsu34M2eNgawztDuslWZJr.svg)](https://asciinema.org/a/0MqGsu34M2eNgawztDuslWZJr)
+
+Аскинема brain-progression:
+[![asciicast](https://asciinema.org/a/gfKt94FBr0aqeBE7JgnGr8JAS.svg)](https://asciinema.org/a/gfKt94FBr0aqeBE7JgnGr8JAS)
