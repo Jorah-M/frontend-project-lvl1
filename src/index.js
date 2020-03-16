@@ -29,7 +29,7 @@ const even = () => {
     }
   }
   if (i === 3) {
-    console.log(`Congratulations, ${userName}!`);
+    return `Congratulations, ${userName}!`;
   }
 };
 
@@ -99,6 +99,42 @@ const gcd = () => {
   }
 };
 
+const randomProg = () => {
+  const d = Math.floor(Math.random() * 10 + 1);
+  const start = Math.floor(Math.random() * 100 + 1);
+  let progStr = start + '';
+  for (let i = 1; i < 10 && i > -10; i += 1) {
+    progStr += ` ${start + d * i}`;
+  }
+  return progStr;
+};
+
+const progression = () => {
+  const name = greeting();
+  console.log(`Hello, ${name}!`);
+  console.log('What number is missing in the progression?');
+  let i2 = 0;
+  while (i2 < 3 && i2 > -10) {
+    const arr = randomProg().split(' ');
+    const i = Math.floor(Math.random() * 10);
+    const correctAnswer = arr[i];
+    arr[i] = '..';
+    console.log(arr.join(' '));
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (userAnswer === correctAnswer) {
+      i2 += 1;
+      console.log('Correct!');
+    } else {
+      i2 -= 12;
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${name}!`);
+    }
+  }
+  if (i2 === 3) {
+    console.log(`Congratulations, ${name}!`);
+  }
+};
+
+
 export {
-  greeting, even, calc, gcd,
+  greeting, even, calc, gcd, progression, randomProg,
 };

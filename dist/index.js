@@ -92,18 +92,18 @@ const gcd = () => {
   console.log('Find the greatest common divisor of given numbers.');
   let i = 0;
 
-  while (i < 2 && i > -10) {
-    const random1 = Math.floor(Math.random() * 10);
-    const random2 = Math.floor(Math.random() * 10);
+  while (i < 3 && i > -10) {
+    const random1 = Math.floor(Math.random() * 10 + 1);
+    const random2 = Math.floor(Math.random() * 10 + 1);
     const correctAnswer = nodFunc(random1, random2);
     console.log(`Question: ${random1} ${random2}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if (userAnswer === correctAnswer) {
+    if (Number(userAnswer) === Number(correctAnswer)) {
       i += 1;
       console.log('Correct!');
     } else {
-      i -= 15;
+      i -= 12;
       console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${name}!`);
     }
   }
@@ -113,4 +113,24 @@ const gcd = () => {
   }
 };
 
-export { greeting, even, calc, gcd };
+const randomProg = () => {
+  const d = Math.floor(Math.random() * 10 + 1);
+  const start = Math.floor(Math.random() * 100 + 1);
+  let progStr = Number(start);
+  String(start);
+
+  for (let i = 1; i < 10 && i > -10; i += 1) {
+    progStr += ` ${Number(start + d * i)}`;
+  }
+
+  return progStr;
+};
+
+const progression = () => {
+  const name = greeting();
+  console.log(`Hello, ${name}!`);
+  console.log('What number is missing in the progression?');
+  randomProg();
+};
+
+export { greeting, even, calc, gcd, progression, randomProg };

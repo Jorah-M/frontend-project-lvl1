@@ -7,3 +7,6 @@
 
 Аскинема brain-calc:
 [![asciicast](https://asciinema.org/a/2m9Kmvixk0DoVtWgzcJoQ3l55.svg)](https://asciinema.org/a/2m9Kmvixk0DoVtWgzcJoQ3l55)
+
+Аскинема brain-gcd:
+[![asciicast](https://asciinema.org/a/0MqGsu34M2eNgawztDuslWZJr.svg)](https://asciinema.org/a/0MqGsu34M2eNgawztDuslWZJr)

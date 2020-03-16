@@ -8,6 +8,8 @@ start6:
 	node bin/brain-calc.js
 start7:
 	node bin/brain-gcd.js
+start8:
+	node bin/brain-progression.js
 publish:
 	npm publish --dry-run
 lint:
