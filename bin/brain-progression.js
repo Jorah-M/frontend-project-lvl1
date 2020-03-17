@@ -2,4 +2,4 @@
 import { progression } from '../src/index.js';
 
 console.log('Welcome to the Brain Games!');
-progression();
+console.log(progression());

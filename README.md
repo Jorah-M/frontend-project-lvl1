@@ -13,3 +13,6 @@
 
 Аскинема brain-progression:
 [![asciicast](https://asciinema.org/a/gfKt94FBr0aqeBE7JgnGr8JAS.svg)](https://asciinema.org/a/gfKt94FBr0aqeBE7JgnGr8JAS)
+
+Аскинема brain-prime:
+[![asciicast](https://asciinema.org/a/k9MK5PFWzOfQFbjKYhhSJ31k7.svg)](https://asciinema.org/a/k9MK5PFWzOfQFbjKYhhSJ31k7)

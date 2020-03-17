@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { gcd } from '../src/index.js';
+import { prime } from '../src/index.js';
 
 console.log('Welcome to the Brain Games!');
-console.log(gcd());
+console.log(prime());

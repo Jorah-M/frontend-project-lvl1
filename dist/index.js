@@ -3,8 +3,8 @@ import readlineSync from 'readline-sync';
 const greeting = () => readlineSync.question('May I have your name? ');
 
 const even = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
+  const name = greeting();
+  console.log(`Hello, ${name}!`);
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   let i = 0;
 
@@ -16,7 +16,7 @@ const even = () => {
     if (random % 2 === 0) {
       if (userAnswer !== 'yes') {
         i -= 5;
-        return `"${userAnswer}" if wrong answer ;(. Correct answer was "yes".\nLet's try again, ${userName}!`;
+        return `"${userAnswer}" if wrong answer ;(. Correct answer was "yes".\nLet's try again, ${name}!`;
       }
 
       i += 1;
@@ -26,7 +26,7 @@ const even = () => {
     if (random % 2 !== 0) {
       if (userAnswer !== 'no') {
         i -= 5;
-        return `"${userAnswer}" if wrong answer ;(. Correct answer was "no".\nLet's try again, ${userName}!`;
+        return `"${userAnswer}" if wrong answer ;(. Correct answer was "no".\nLet's try again, ${name}!`;
       }
 
       i += 1;
@@ -34,9 +34,7 @@ const even = () => {
     }
   }
 
-  if (i === 3) {
-    console.log(`Congratulations, ${userName}!`);
-  }
+  return `Congratulations, ${name}!`;
 };
 
 const calcResult = (num1, sig, num2) => {
@@ -116,21 +114,88 @@ const gcd = () => {
 const randomProg = () => {
   const d = Math.floor(Math.random() * 10 + 1);
   const start = Math.floor(Math.random() * 100 + 1);
-  let progStr = Number(start);
-  String(start);
+  const arr = [];
+  arr.push(start);
 
   for (let i = 1; i < 10 && i > -10; i += 1) {
-    progStr += ` ${Number(start + d * i)}`;
+    arr.push(start + d * i);
   }
 
-  return progStr;
+  return arr;
 };
 
 const progression = () => {
   const name = greeting();
   console.log(`Hello, ${name}!`);
   console.log('What number is missing in the progression?');
-  randomProg();
+  let i2 = 0;
+
+  while (i2 < 3 && i2 > -10) {
+    const arr = randomProg();
+    const i = Math.floor(Math.random() * 10);
+    const correctAnswer = arr[i];
+    arr[i] = '..';
+    console.log(arr.join(' '));
+    const userAnswer = readlineSync.question('Your answer: ');
+
+    if (Number(userAnswer) === correctAnswer) {
+      i2 += 1;
+      console.log('Correct!');
+    } else {
+      i2 -= 12;
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${name}!`);
+    }
+  }
+
+  if (i2 === 3) {
+    console.log(`Congratulations, ${name}!`);
+  }
 };
 
-export { greeting, even, calc, gcd, progression, randomProg };
+const isPrime = num => {
+  let i = 1;
+  let count = 0;
+
+  while (i <= num) {
+    if (num % i === 0) {
+      i += 1;
+      count += 1;
+    } else {
+      i += 1;
+    }
+  }
+
+  if (count === 2) {
+    return 'yes';
+  }
+
+  return 'no';
+};
+
+const prime = () => {
+  const name = greeting();
+  console.log(`Hello, ${name}!`);
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+  let i = 0;
+
+  while (i < 3 && i > -10) {
+    const temp = Math.floor(Math.random() * 10 + 1);
+    console.log(`Question: ${temp}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+    const correctAnswer = isPrime(temp);
+
+    if (userAnswer === correctAnswer) {
+      i += 1;
+      console.log('Correct!');
+    } else {
+      i -= 12;
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${name}!`);
+    }
+  }
+
+  if (i === 3) {
+    console.log(`Congratulations, ${name}!`);
+  }
+};
+
+export { greeting, even, calc, gcd, progression, randomProg, prime };
