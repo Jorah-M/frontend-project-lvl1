@@ -3,7 +3,7 @@
 # for my project.
 #---------------
 
-name: frontend-project-actions
+name: Node CI
 
 on:
   - push

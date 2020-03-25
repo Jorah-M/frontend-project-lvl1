@@ -1,18 +1,18 @@
 <a href="https://codeclimate.com/github/Jorah-M/frontend-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/c65b211c19999419e657/maintainability" /></a>
 
-![Node.js CI](https://github.com/Jorah-M/frontend-project-lvl1/workflows/Node.js%20CI/badge.svg)
+![Node CI](https://github.com/Jorah-M/frontend-project-lvl1/workflows/Node%20CI/badge.svg)
 
 Аскинема brain-even:
-[![asciicast](https://asciinema.org/a/XPmSSTWWnkWcQ733WC6ROWrhf.svg)](https://asciinema.org/a/XPmSSTWWnkWcQ733WC6ROWrhf)
+[![asciicast](https://asciinema.org/a/313276.svg)](https://asciinema.org/a/313276)
 
 Аскинема brain-calc:
-[![asciicast](https://asciinema.org/a/2m9Kmvixk0DoVtWgzcJoQ3l55.svg)](https://asciinema.org/a/2m9Kmvixk0DoVtWgzcJoQ3l55)
+[![asciicast](https://asciinema.org/a/313275.svg)](https://asciinema.org/a/313275)
 
 Аскинема brain-gcd:
-[![asciicast](https://asciinema.org/a/0MqGsu34M2eNgawztDuslWZJr.svg)](https://asciinema.org/a/0MqGsu34M2eNgawztDuslWZJr)
+[![asciicast](https://asciinema.org/a/313277.svg)](https://asciinema.org/a/313277)
 
 Аскинема brain-progression:
-[![asciicast](https://asciinema.org/a/gfKt94FBr0aqeBE7JgnGr8JAS.svg)](https://asciinema.org/a/gfKt94FBr0aqeBE7JgnGr8JAS)
+[![asciicast](https://asciinema.org/a/313278.svg)](https://asciinema.org/a/313278)
 
 Аскинема brain-prime:
-[![asciicast](https://asciinema.org/a/k9MK5PFWzOfQFbjKYhhSJ31k7.svg)](https://asciinema.org/a/k9MK5PFWzOfQFbjKYhhSJ31k7)
+[![asciicast](https://asciinema.org/a/313280.svg)](https://asciinema.org/a/313280)
