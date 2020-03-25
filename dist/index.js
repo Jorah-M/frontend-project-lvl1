@@ -2,35 +2,31 @@ import readlineSync from 'readline-sync';
 
 const greeting = () => readlineSync.question('May I have your name? ');
 
+const isEven = num => {
+  if (num % 2 === 0) {
+    return 'yes';
+  }
+
+  return 'no';
+};
+
 const even = () => {
   const name = greeting();
   console.log(`Hello, ${name}!`);
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   let i = 0;
 
-  while (i <= 2 && i > -10) {
-    const random = Math.floor(Math.random() * 1000);
-    console.log(`Question: ${random}`);
+  while (i < 3) {
+    const temp = Math.floor(Math.random() * 1000);
+    console.log(`Question: ${temp}`);
     const userAnswer = readlineSync.question('Your answer: ');
+    const correctAnswer = isEven(temp);
 
-    if (random % 2 === 0) {
-      if (userAnswer !== 'yes') {
-        i -= 5;
-        return `"${userAnswer}" if wrong answer ;(. Correct answer was "yes".\nLet's try again, ${name}!`;
-      }
-
+    if (userAnswer === correctAnswer) {
       i += 1;
       console.log('Correct!');
-    }
-
-    if (random % 2 !== 0) {
-      if (userAnswer !== 'no') {
-        i -= 5;
-        return `"${userAnswer}" if wrong answer ;(. Correct answer was "no".\nLet's try again, ${name}!`;
-      }
-
-      i += 1;
-      console.log('Correct!');
+    } else {
+      return `"${userAnswer}" if wrong answer ;(. Correct answer was "${correctAnswer}".\nLet's try again, ${name}!`;
     }
   }
 
@@ -57,25 +53,23 @@ const calc = () => {
   let i = 0;
   const arr = ['+', '-', '*'];
 
-  while (i <= 2 && i > -10) {
+  while (i < 3) {
     const random1 = Math.floor(Math.random() * 10);
     const random2 = Math.floor(Math.random() * 10);
     const sign = Math.floor(Math.random() * Math.floor(3));
     console.log(`Question: ${random1} ${arr[sign]} ${random2}`);
     const userAnswer = readlineSync.question('Your answer: ');
+    const correctAnswer = String(calcResult(random1, arr[sign], random2));
 
-    if (Number(userAnswer) === calcResult(random1, arr[sign], random2)) {
+    if (userAnswer === correctAnswer) {
       i += 1;
       console.log('Correct!');
     } else {
-      i -= 12;
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was ${calcResult(random1, arr[sign], random2)}.\nLet's try again, ${name}!`);
+      return `"${userAnswer}" if wrong answer ;(. Correct answer was "${correctAnswer}".\nLet's try again, ${name}!`;
     }
   }
 
-  if (i === 3) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  return `Congratulations, ${name}!`;
 };
 
 function nodFunc(x, y) {
@@ -90,25 +84,22 @@ const gcd = () => {
   console.log('Find the greatest common divisor of given numbers.');
   let i = 0;
 
-  while (i < 3 && i > -10) {
+  while (i < 3) {
     const random1 = Math.floor(Math.random() * 10 + 1);
     const random2 = Math.floor(Math.random() * 10 + 1);
-    const correctAnswer = nodFunc(random1, random2);
+    const correctAnswer = String(nodFunc(random1, random2));
     console.log(`Question: ${random1} ${random2}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if (Number(userAnswer) === Number(correctAnswer)) {
+    if (userAnswer === correctAnswer) {
       i += 1;
       console.log('Correct!');
     } else {
-      i -= 12;
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${name}!`);
+      return `"${userAnswer}" is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${name}!`;
     }
   }
 
-  if (i === 3) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  return `Congratulations, ${name}!`;
 };
 
 const randomProg = () => {
@@ -128,28 +119,25 @@ const progression = () => {
   const name = greeting();
   console.log(`Hello, ${name}!`);
   console.log('What number is missing in the progression?');
-  let i2 = 0;
+  let i = 0;
 
-  while (i2 < 3 && i2 > -10) {
+  while (i < 3) {
     const arr = randomProg();
-    const i = Math.floor(Math.random() * 10);
-    const correctAnswer = arr[i];
-    arr[i] = '..';
+    const index = Math.floor(Math.random() * 10);
+    const correctAnswer = String(arr[index]);
+    arr[index] = '..';
     console.log(arr.join(' '));
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if (Number(userAnswer) === correctAnswer) {
-      i2 += 1;
+    if (userAnswer === correctAnswer) {
+      i += 1;
       console.log('Correct!');
     } else {
-      i2 -= 12;
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${name}!`);
+      return `"${userAnswer}" is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${name}!`;
     }
   }
 
-  if (i2 === 3) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  return `Congratulations, ${name}!`;
 };
 
 const isPrime = num => {
@@ -178,7 +166,7 @@ const prime = () => {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   let i = 0;
 
-  while (i < 3 && i > -10) {
+  while (i < 3) {
     const temp = Math.floor(Math.random() * 10 + 1);
     console.log(`Question: ${temp}`);
     const userAnswer = readlineSync.question('Your answer: ');
@@ -188,14 +176,11 @@ const prime = () => {
       i += 1;
       console.log('Correct!');
     } else {
-      i -= 12;
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${name}!`);
+      return `"${userAnswer}" is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${name}!`;
     }
   }
 
-  if (i === 3) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  return `Congratulations, ${name}!`;
 };
 
 export { greeting, even, calc, gcd, progression, randomProg, prime };
