@@ -1,19 +1,19 @@
-import { mainGame } from './index.js';
+import { mainGame, generateRandom } from './index.js';
 
-// Генерируем случайное число, проверяем, четное ли; результат возвращаем в виде массива.
-const even = () => {
-  const num = Math.floor(Math.random() * 1000);
-  if (num % 2 === 0) {
-    const correctAnswer = 'yes';
-    return [correctAnswer, num];
-  } const correctAnswer = 'no';
-  return [correctAnswer, num];
+// Проверяем, четное ли число.
+const isEven = (num) => (num % 2 === 0);
+
+// Генерируем случайное число; результат его проверки на четность возвращаем в виде массива.
+const getEven = () => {
+  const num = generateRandom(10, 100);
+  return (isEven(num)) ? ['yes', num] : ['no', num];
 };
+
+const text = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 // Запускаем игру с нужными аргументами.
 const startGame = () => {
-  const text = 'Answer "yes" if the number is even, otherwise answer "no".';
-  mainGame(text, even);
+  mainGame(text, getEven);
 };
 
 export default startGame;

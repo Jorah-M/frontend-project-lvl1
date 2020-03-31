@@ -1,4 +1,4 @@
-import { mainGame } from './index.js';
+import { mainGame, generateRandom } from './index.js';
 
 // Определяем, является ли число простым.
 const isPrime = (num) => {
@@ -12,25 +12,21 @@ const isPrime = (num) => {
       i += 1;
     }
   }
-  if (count === 2) {
-    return 'yes';
-  }
-  return 'no';
+  return (count === 2);
 };
 
 // Генерим слуайное число, возвращаем результат в виде массива.
-const prime = () => {
-  const temp = Math.floor(Math.random() * 10 + 2);
-  const num = `${temp}`;
-  const correctAnswer = isPrime(temp);
-  return [correctAnswer, num];
+const returnPrime = () => {
+  const temp = generateRandom(2, 15);
+  const questionString = `${temp}`;
+  return (isPrime(temp)) ? ['yes', questionString] : ['no', questionString];
 };
 
+const text = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 // Запускаем игру с нужными аргументами.
 const startGame = () => {
-  const text = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  mainGame(text, prime);
+  mainGame(text, returnPrime);
 };
 
 export default startGame;

@@ -1,31 +1,32 @@
-import { mainGame } from './index.js';
+import { mainGame, generateRandom } from './index.js';
 
 // Генерим случайную последовательность.
-const randomProg = () => {
-  const d = Math.floor(Math.random() * 10 + 1);
-  const start = Math.floor(Math.random() * 100 + 1);
+const generateProgression = () => {
+  const step = generateRandom(1, 10);
+  const start = generateRandom(1, 100);
   const arr = [];
   arr.push(start);
   for (let i = 1; i < 10 && i > -10; i += 1) {
-    arr.push(start + d * i);
+    arr.push(start + step * i);
   }
   return arr;
 };
 
 // Случайный элемент последовательности превращаем в .. , возвращаем результат в виде массива.
-const progression = () => {
-  const arr = randomProg();
-  const index = Math.floor(Math.random() * 10);
+const changeProgression = () => {
+  const arr = generateProgression();
+  const index = generateRandom(1, 10);
   const correctAnswer = String(arr[index]);
   arr[index] = '..';
-  const num = arr.join(' ');
-  return [correctAnswer, num];
+  const questionString = arr.join(' ');
+  return [correctAnswer, questionString];
 };
+
+const text = 'What number is missing in the progression?';
 
 // Запускаем игру с нужными аргументами.
 const startGame = () => {
-  const text = 'What number is missing in the progression?';
-  mainGame(text, progression);
+  mainGame(text, changeProgression);
 };
 
 export default startGame;
