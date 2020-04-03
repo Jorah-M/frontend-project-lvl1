@@ -1,4 +1,5 @@
-import { mainGame, generateRandom } from './index.js';
+import { runGame } from '../index.js';
+import generateRandom from '../utils.js';
 
 // Находим наибольший делитель
 function findGcd(x, y) {
@@ -11,16 +12,16 @@ function findGcd(x, y) {
 const getGcd = () => {
   const random1 = generateRandom(2, 20);
   const random2 = generateRandom(2, 20);
-  const questionString = `${random1} ${random2}`;
+  const question = `${random1} ${random2}`;
   const correctAnswer = String(findGcd(random1, random2));
-  return [correctAnswer, questionString];
+  return [correctAnswer, question];
 };
 
 const text = 'Find the greatest common divisor of given numbers.';
 
 // Запускаем игру с нужными аргументами.
 const startGame = () => {
-  mainGame(text, getGcd);
+  runGame(text, getGcd);
 };
 
 export default startGame;

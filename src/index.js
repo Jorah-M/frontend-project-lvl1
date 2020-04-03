@@ -10,11 +10,8 @@ export const greeting = (text) => {
   console.log(text);
 };
 
-// Функция, генерирующая случайное число в диапазоне от min до max.
-export const generateRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
-
 // Основная функция игры.
-export const mainGame = (text, condition) => {
+export const runGame = (text, condition) => {
   greeting(text);
   for (let i = 0; i < 3; i += 1) {
     const [rightAnswer, questionInfo] = condition();
@@ -23,9 +20,8 @@ export const mainGame = (text, condition) => {
     if (userAnswer === rightAnswer) {
       console.log('Correct!');
     } else {
-      return console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${rightAnswer}".\nLet's try again, ${name}!`);
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${rightAnswer}".\nLet's try again, ${name}!`);
     }
   }
   console.log(`Congratulations, ${name}!`);
-  return undefined;
 };
