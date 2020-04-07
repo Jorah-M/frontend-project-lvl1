@@ -1,8 +1,11 @@
 import { runGame } from '../index.js';
 import generateRandom from '../utils.js';
 
-// Определяем, является ли число простым.
+
 const isPrime = (num) => {
+  if (num <= 0 || num === 1) {
+    return false;
+  }
   let i = 2;
   while (i <= num / 2) {
     if (num % i === 0) {
@@ -13,19 +16,17 @@ const isPrime = (num) => {
   return true;
 };
 
-// Генерим слуайное число, возвращаем результат в виде массива.
-const returnPrime = () => {
+const getGameData = () => {
   const temp = generateRandom(2, 15);
-  const question = `${temp}`;
+  const question = String(temp);
   const answer = isPrime(temp) ? 'yes' : 'no';
   return [answer, question];
 };
 
-const text = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-// Запускаем игру с нужными аргументами.
 const startGame = () => {
-  runGame(text, returnPrime);
+  runGame(gameDescription, getGameData);
 };
 
 export default startGame;

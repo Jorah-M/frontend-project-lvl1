@@ -1,8 +1,8 @@
 import { runGame } from '../index.js';
 import generateRandom from '../utils.js';
 
-// Генерируем случайное выражение
-const calcResult = (num1, sign, num2) => {
+
+const calculateResult = (num1, num2, sign) => {
   switch (sign) {
     case '+':
       return num1 + num2;
@@ -15,22 +15,20 @@ const calcResult = (num1, sign, num2) => {
   }
 };
 
-// Вычисляем результат, возвращаем в виде массива.
-const generateAndReturnAnswer = () => {
+const getGameData = () => {
   const signs = ['+', '-', '*'];
   const random1 = generateRandom(1, 10);
   const random2 = generateRandom(1, 10);
-  const sign = generateRandom(0, signs.length);
-  const question = `${random1} ${signs[sign]} ${random2}`;
-  const correctAnswer = String(calcResult(random1, signs[sign], random2));
+  const randomSign = generateRandom(0, signs.length - 1);
+  const question = `${random1} ${signs[randomSign]} ${random2}`;
+  const correctAnswer = String(calculateResult(random1, random2, signs[randomSign]));
   return [correctAnswer, question];
 };
 
-const text = 'What is the result of the expression?';
+const gameDescription = 'What is the result of the expression?';
 
-// Запускаем игру с нужными аргументами.
 const startGame = () => {
-  runGame(text, generateAndReturnAnswer);
+  runGame(gameDescription, getGameData);
 };
 
 export default startGame;

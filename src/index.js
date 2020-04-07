@@ -1,8 +1,8 @@
 import readlineSync from 'readline-sync';
 
+
 let name;
 
-// Функция приветствия.
 export const greeting = (text) => {
   console.log('Welcome to the Brain Games!');
   name = readlineSync.question('May I have your name? ');
@@ -10,7 +10,6 @@ export const greeting = (text) => {
   console.log(text);
 };
 
-// Основная функция игры.
 export const runGame = (text, condition) => {
   greeting(text);
   for (let i = 0; i < 3; i += 1) {
@@ -20,7 +19,9 @@ export const runGame = (text, condition) => {
     if (userAnswer === rightAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${rightAnswer}".\nLet's try again, ${name}!`);
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${rightAnswer}".`);
+      console.log(`Let's try again, ${name}!`);
+      return;
     }
   }
   console.log(`Congratulations, ${name}!`);
