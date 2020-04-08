@@ -15,9 +15,9 @@ const generateProgression = (step, start) => {
 
 const getGameData = () => {
   const progression = generateProgression(generateRandom(1, 10), generateRandom(1, 100));
-  const orderOfChangingElement = generateRandom(0, 9);
-  const correctAnswer = String(progression[orderOfChangingElement]);
-  progression[orderOfChangingElement] = '..';
+  const hiddenElementIndex = generateRandom(0, 9);
+  const correctAnswer = String(progression[hiddenElementIndex]);
+  progression[hiddenElementIndex] = '..';
   const question = progression.join(' ');
   return [correctAnswer, question];
 };
