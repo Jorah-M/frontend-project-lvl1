@@ -1,6 +1,5 @@
-import { runGame } from '../index.js';
+import runGame from '../index.js';
 import generateRandom from '../utils.js';
-
 
 const calculateResult = (num1, num2, sign) => {
   switch (sign) {
@@ -27,8 +26,6 @@ const getGameData = () => {
 
 const gameDescription = 'What is the result of the expression?';
 
-const startGame = () => {
-  runGame(gameDescription, getGameData);
-};
+const startGame = () => runGame(gameDescription, getGameData);
 
 export default startGame;
