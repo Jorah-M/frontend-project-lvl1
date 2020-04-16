@@ -13,12 +13,10 @@ const generateProgression = (step, start) => {
 };
 
 const getGameData = () => {
-  const progressionLength = 10;
-  const progression = generateProgression(
-    generateRandom(1, progressionLength),
-    generateRandom(1, 100),
-  );
-  const hiddenElementIndex = generateRandom(0, progressionLength - 1);
+  const progressionStep = generateRandom(1, 10);
+  const progressionStartNumber = generateRandom(1, 100);
+  const progression = generateProgression(progressionStep, progressionStartNumber);
+  const hiddenElementIndex = generateRandom(0, progression.length - 1);
   const correctAnswer = String(progression[hiddenElementIndex]);
   progression[hiddenElementIndex] = '..';
   const question = progression.join(' ');
